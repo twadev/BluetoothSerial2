@@ -24,7 +24,7 @@ import android.util.Log;
  * This code was based on the Android SDK BluetoothChat Sample
  * $ANDROID_SDK/samples/android-17/BluetoothChat
  */
-public class BluetoothSerialService {
+public class BluetoothSerialService2 {
 
     // Debugging
     private static final String TAG = "BluetoothSerialService";
@@ -60,7 +60,7 @@ public class BluetoothSerialService {
      * Constructor. Prepares a new BluetoothSerial session.
      * @param handler  A Handler to send messages back to the UI Activity
      */
-    public BluetoothSerialService(Handler handler) {
+    public BluetoothSerialService2(Handler handler) {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mState = STATE_NONE;
         mHandler = handler;
@@ -229,7 +229,7 @@ public class BluetoothSerialService {
         mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothSerialService.this.start();
+        BluetoothSerialService2.this.start();
     }
 
     /**
@@ -244,7 +244,7 @@ public class BluetoothSerialService {
         mHandler.sendMessage(msg);
 
         // Start the service over to restart listening mode
-        BluetoothSerialService.this.start();
+        BluetoothSerialService2.this.start();
     }
 
     /**
@@ -293,7 +293,7 @@ public class BluetoothSerialService {
 
                 // If a connection was accepted
                 if (socket != null) {
-                    synchronized (BluetoothSerialService.this) {
+                    synchronized (BluetoothSerialService2.this) {
                         switch (mState) {
                             case STATE_LISTEN:
                             case STATE_CONNECTING:
@@ -395,7 +395,7 @@ public class BluetoothSerialService {
             }
 
             // Reset the ConnectThread because we're done
-            synchronized (BluetoothSerialService.this) {
+            synchronized (BluetoothSerialService2.this) {
                 mConnectThread = null;
             }
 
@@ -466,7 +466,7 @@ public class BluetoothSerialService {
                     Log.e(TAG, "disconnected", e);
                     connectionLost();
                     // Start the service over to restart listening mode
-                    BluetoothSerialService.this.start();
+                    BluetoothSerialService2.this.start();
                     break;
                 }
             }

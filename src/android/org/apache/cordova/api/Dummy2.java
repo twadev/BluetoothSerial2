@@ -5,5 +5,5 @@ package org.apache.cordova.api;
 // since I'm using wildcard imports to work around the renamed classes
 // import org.apache.cordova.*;
 // import org.apache.cordova.api.*;
-public class Dummy {
+public class Dummy2 {
 }
