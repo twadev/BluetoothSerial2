@@ -16,21 +16,21 @@
         <engine name="cordova" version=">=2.9.0" />
     </engines>
 
-    <js-module src="www/bluetoothSerial.js" name="bluetoothSerial">
-        <clobbers target="window.bluetoothSerial" />
+    <js-module src="www/bluetoothSerial2.js" name="bluetoothSerial2">
+        <clobbers target="window.bluetoothSerial2" />
     </js-module>
 
     <platform name="android">
 
         <config-file target="res/xml/config.xml" parent="/widget">
-            <feature name="BluetoothSerial">
-                <param name="android-package" value="com.megster.cordova.BluetoothSerial"/>
+            <feature name="BluetoothSerial2">
+                <param name="android-package" value="com.megster.cordova.BluetoothSerial2"/>
             </feature>
         </config-file>
 
-        <source-file src="src/android/com/megster/cordova/BluetoothSerial.java"
+        <source-file src="src/android/com/megster/cordova/BluetoothSerial2.java"
             target-dir="src/com/megster/cordova"/>
-        <source-file src="src/android/com/megster/cordova/BluetoothSerialService.java"
+        <source-file src="src/android/com/megster/cordova/BluetoothSerialService2.java"
             target-dir="src/com/megster/cordova"/>
 
         <!-- kludge for 2.9 -->
@@ -47,8 +47,8 @@
     <platform name="ios">
 
         <config-file target="config.xml" parent="/widget">
-            <feature name="BluetoothSerial">
-                <param name="ios-package" value="MEGBluetoothSerial" onload="true"/>
+            <feature name="BluetoothSerial2">
+                <param name="ios-package" value="MEGBluetoothSerial2" onload="true"/>
             </feature>
         </config-file>
 
