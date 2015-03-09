@@ -34,7 +34,7 @@
             target-dir="src/com/megster/cordova"/>
 
         <!-- kludge for 2.9 -->
-        <source-file src="src/android/org/apache/cordova/api/Dummy.java"
+        <source-file src="src/android/org/apache/cordova/api/Dummy2.java"
             target-dir="src/org/apache/cordova/api"/>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
