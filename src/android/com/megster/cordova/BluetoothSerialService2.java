@@ -75,7 +75,7 @@ public class BluetoothSerialService2 {
         mState = state;
 
         // Give the new state to the Handler so the UI Activity can update
-        mHandler.obtainMessage(BluetoothSerial.MESSAGE_STATE_CHANGE, state, -1).sendToTarget();
+        mHandler.obtainMessage(BluetoothSerial2.MESSAGE_STATE_CHANGE, state, -1).sendToTarget();
     }
 
     /**
@@ -163,9 +163,9 @@ public class BluetoothSerialService2 {
         mConnectedThread.start();
 
         // Send the name of the connected device back to the UI Activity
-        Message msg = mHandler.obtainMessage(BluetoothSerial.MESSAGE_DEVICE_NAME);
+        Message msg = mHandler.obtainMessage(BluetoothSerial2.MESSAGE_DEVICE_NAME);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothSerial.DEVICE_NAME, device.getName());
+        bundle.putString(BluetoothSerial2.DEVICE_NAME, device.getName());
         msg.setData(bundle);
         mHandler.sendMessage(msg);
 
@@ -222,9 +222,9 @@ public class BluetoothSerialService2 {
      */
     private void connectionFailed() {
         // Send a failure message back to the Activity
-        Message msg = mHandler.obtainMessage(BluetoothSerial.MESSAGE_TOAST);
+        Message msg = mHandler.obtainMessage(BluetoothSerial2.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothSerial.TOAST, "Unable to connect to device");
+        bundle.putString(BluetoothSerial2.TOAST, "Unable to connect to device");
         msg.setData(bundle);
         mHandler.sendMessage(msg);
 
@@ -237,9 +237,9 @@ public class BluetoothSerialService2 {
      */
     private void connectionLost() {
         // Send a failure message back to the Activity
-        Message msg = mHandler.obtainMessage(BluetoothSerial.MESSAGE_TOAST);
+        Message msg = mHandler.obtainMessage(BluetoothSerial2.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothSerial.TOAST, "Device connection was lost");
+        bundle.putString(BluetoothSerial2.TOAST, "Device connection was lost");
         msg.setData(bundle);
         mHandler.sendMessage(msg);
 
@@ -452,14 +452,14 @@ public class BluetoothSerialService2 {
                     String data = new String(buffer, 0, bytes);
 
                     // Send the new data String to the UI Activity
-                    mHandler.obtainMessage(BluetoothSerial.MESSAGE_READ, data).sendToTarget();
+                    mHandler.obtainMessage(BluetoothSerial2.MESSAGE_READ, data).sendToTarget();
 
                     // Send the raw bytestream to the UI Activity.
                     // We make a copy because the full array can have extra data at the end
                     // when / if we read less than its size.
                     if (bytes > 0) {
                         byte[] rawdata = Arrays.copyOf(buffer, bytes);
-                        mHandler.obtainMessage(BluetoothSerial.MESSAGE_READ_RAW, rawdata).sendToTarget();
+                        mHandler.obtainMessage(BluetoothSerial2.MESSAGE_READ_RAW, rawdata).sendToTarget();
                     }
 
                 } catch (IOException e) {
@@ -481,7 +481,7 @@ public class BluetoothSerialService2 {
                 mmOutStream.write(buffer);
 
                 // Share the sent message back to the UI Activity
-                mHandler.obtainMessage(BluetoothSerial.MESSAGE_WRITE, -1, -1, buffer).sendToTarget();
+                mHandler.obtainMessage(BluetoothSerial2.MESSAGE_WRITE, -1, -1, buffer).sendToTarget();
 
             } catch (IOException e) {
                 Log.e(TAG, "Exception during write", e);
