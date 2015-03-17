@@ -59,7 +59,7 @@ public class BluetoothSerial2 extends CordovaPlugin {
     private BluetoothSerialService2 bluetoothSerialService;
 
     // Debugging
-    private static final String TAG = "BluetoothSerial";
+    private static final String TAG = "BluetoothSerial2";
     private static final boolean D = true;
 
     // Message types sent from the BluetoothSerialService Handler

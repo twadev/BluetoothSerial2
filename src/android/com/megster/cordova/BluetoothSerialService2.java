@@ -27,12 +27,12 @@ import android.util.Log;
 public class BluetoothSerialService2 {
 
     // Debugging
-    private static final String TAG = "BluetoothSerialService";
+    private static final String TAG = "BluetoothSerial2Service";
     private static final boolean D = true;
 
     // Name for the SDP record when creating server socket
-    private static final String NAME_SECURE = "PhoneGapBluetoothSerialServiceSecure";
-    private static final String NAME_INSECURE = "PhoneGapBluetoothSerialServiceInSecure";
+    private static final String NAME_SECURE = "PhoneGapBluetoothSerial2ServiceSecure";
+    private static final String NAME_INSECURE = "PhoneGapBluetoothSerial2ServiceInSecure";
 
     // Unique UUID for this application
     private static final UUID MY_UUID_SECURE = UUID.fromString("7A9C3B55-78D0-44A7-A94E-A93E3FE118CF");
